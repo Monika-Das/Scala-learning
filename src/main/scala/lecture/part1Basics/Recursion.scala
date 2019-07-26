@@ -48,4 +48,19 @@ object Recursion extends App {
     * This is called tail recursion, use recursive call as last expression
     */
 
+
+//  def isPrime(n:Int):Boolean = {
+//
+//    def isPrimetailRec(t:Int, isStillPrime:Boolean): Boolean = {
+//      if(!isStillPrime) false
+//      else if (t <= 1) true
+//      else isPrimetailRec(t-1, n % t != 0 && isStillPrime)
+//
+//    isPrimetailRec(n/2,true)
+//
+//    }
+//
+//    println(isPrime(2003))
+//  }
+
 }

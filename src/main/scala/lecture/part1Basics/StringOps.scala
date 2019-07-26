@@ -15,7 +15,7 @@ object StringOps extends App{
   println((str.toUpperCase()))
   println(str.length)
 
-  val aNumString = "45"
+  val aNumString:String = "45"
   println(aNumString.toInt)
   println('a' +: aNumString :+ 'z')
   println(aNumString.reverse)
