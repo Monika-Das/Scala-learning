@@ -9,6 +9,18 @@ object OOBasics extends App {
   println(person.x)
   person.greet("Daniel")
   person.greet()
+
+  ///////////////////exercises execution/////////////////////////
+  val author = new Writer("Charles", "Dickens", 1912)
+  val novel = new Novel("GreatExpectations",1961,author)
+  println(novel.authorAge)
+  println(novel.isWrittenBy(author))
+
+  val counter = new Counter
+  counter.increment.print
+  counter.increment.increment.increment.print
+  counter.increment(10).print
+
 }
 
 // Constructor - every single Person must be constructed by passing name & age
@@ -34,4 +46,54 @@ class Person(name: String, val age:Int = 0) {
 //person.age in println statement will not work -- we have to define val age:Int in class as parameter for person.age
 //convert parameter to field -- use val
 
+/////////////////////////////exercises///////////////////////////////////////////////
+/**
+  * exercise1: writer & novel
+  */
+class Writer(firstname: String, lastname: String, val year: Int) {
+  def fullname:String = firstname + " " + lastname
+}
+class Novel(name:String, year:Int, author:Writer) {
+  def authorAge = year - author.year
+  def isWrittenBy(author:Writer) = author == this.author
+  def copy(newYear:Int):Novel = new Novel(name, newYear, author)
+}
 
+/**
+  * exercise2: counter implementation
+  */
+class Counter1(n: Int) {
+  def count = n //method that uses parameter defined in class is called getter, instead just use the count as parameter
+}
+//counter used as parameter
+class Counter(val count:Int = 0) {
+
+  def increment = {
+    println("Incrementing") //side-effect
+    new Counter(count + 1)
+  }//immutability, returning new count
+
+  def decrement = {
+    println("Decrementing") //side-effect
+    new Counter(count-1)
+  }
+
+  //overload these to receive an amount
+  def increment1(n:Int) = new Counter(count+n)
+
+  //overloading method increment with n
+  def decrement1(n:Int) = new Counter(count-n)
+
+  def increment(n:Int) :Counter = {
+    if(n<=0) this
+    else increment.increment(n+1)
+  }
+
+  def decrement(n:Int):Counter = {
+    if (n <= 0) this
+    else decrement.decrement(n - 1)
+
+    def print = println((count))
+  }
+
+}

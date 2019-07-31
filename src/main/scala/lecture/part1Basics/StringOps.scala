@@ -12,6 +12,7 @@ object StringOps extends App{
   println(str.split(" ").toList)
   println(str.startsWith("Hello"))
   println(str.replace(" ", "_"))
+  
   println((str.toUpperCase()))
   println(str.length)
 
