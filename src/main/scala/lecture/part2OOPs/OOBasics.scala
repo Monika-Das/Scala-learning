@@ -15,11 +15,12 @@ object OOBasics extends App {
   val novel = new Novel("GreatExpectations",1961,author)
   println(novel.authorAge)
   println(novel.isWrittenBy(author))
-
-  val counter = new Counter
-  counter.increment.print
-  counter.increment.increment.increment.print
-  counter.increment(10).print
+//
+//  val counter = new Counter
+//  counter.increment.
+//    print
+//  counter.increment.increment.increment.print
+//  counter.increment(10).print
 
 }
 
@@ -84,16 +85,16 @@ class Counter(val count:Int = 0) {
   //overloading method increment with n
   def decrement1(n:Int) = new Counter(count-n)
 
-  def increment(n:Int) :Counter = {
-    if(n<=0) this
-    else increment.increment(n+1)
-  }
-
-  def decrement(n:Int):Counter = {
-    if (n <= 0) this
-    else decrement.decrement(n - 1)
-
-    def print = println((count))
-  }
+////  def increment(n:Int) :Counter = {
+////    if(n<=0) this
+////    else increment.increment(n+1)
+//  }
+//
+////  def decrement(n:Int):Counter = {
+////    if (n <= 0) this
+////    else decrement.decrement(n - 1)
+//  }
+//
+//  def print = println((count))
 
 }
